@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <h1>sort</h1>
+        <div class="data">
+            <p id="data"></p>
+        </div>
+        <nav>
+            <a href="#container">Home</a>
+            <a href="#session-formulario">Formulario</a>
+            <a href="#session-participantes">Participantes</a>
+        </nav>
+    </header>
+
+    <section id="container">
+
+        <h1>Bem-vindo ao <span>SORT</span></h1>
+        <img src="./Innovation-pana.png" alt="" width="300px" height="300px">
+        <p>APP PARA SORTEIO DE PESSOAS</p>
+       
+    </section>
+
+    <section id="session-formulario">
+
+        <img src="./Investment data-pana.png" alt="" width="500px" height="500px">
+        
+
+        <form class="form-control">
+            <h1>CADASTRO DE PARTICIPANTE</h1>
+            
+            <div class="form-group">
+                <label for="name">Nome</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Confirmar" id="btn-confirmar">
+            </div>
+        </form>
+       
+    </section>
+
+    <section id="session-participantes">
+
+        <img src="./college class-pana.png" alt="" width="500px" height="600px">
+
+        <div class="list-container">
+            <h1>PARTICIPANTES</h1>
+            <button class="btn-sortear">Iniciar o sorteio</button>
+            <div id="box-card">
+                
+            </div>
+           
+            
+        </div>
+       
+    </section>
+
+
+    
+    <script src="app.js"></script>
+</body>
+</html>
