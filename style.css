@@ -173,7 +173,7 @@ header nav a{
     flex-direction: column;
     background-color: rgb(235, 234, 236);
     margin: 0 auto;
-    padding: 20px; 
+    padding: 20px;    
 }
 
 .list-container .box-list {
@@ -181,10 +181,11 @@ header nav a{
     height: 400px;
     padding: 10px;
     overflow: scroll;
+    transition: all 1.5s ease;
 }
 
 .btn-sortear {
-    height: 50px;
+    height: 70px;
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: chocolate;
