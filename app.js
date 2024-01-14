@@ -10,9 +10,11 @@ let resultadoData = document.querySelector("#result-data")
 let pData = document.querySelector("#data")
 let voltar = document.querySelector("#voltar")
 let list = document.querySelector("#box-card")
+let display = document.querySelector("#contador")
 
 let storage = localStorage.getItem("pessoa") || "[]"
 let dados = JSON.parse(storage)
+
 
 function sorteiaPessoa(){
   let numeroSorteado = Math.floor(Math.random() * dados.length)
@@ -20,7 +22,6 @@ function sorteiaPessoa(){
   
   dados.forEach((nome) => {
     pessoas.push(nome.name)
-    console.log(pessoas[numeroSorteado]);
     resultadoGanhador.textContent = pessoas[numeroSorteado]   
   })
 }
@@ -38,7 +39,7 @@ voltar.addEventListener("click", (e) => {
 })
 
 botaoSortear.addEventListener("click", () => {
-  timer()
+  contador()
 })
 
 
@@ -89,6 +90,23 @@ function listaParticipantes(){
     
 }
 
+
+function contador(){
+  let numero = 0
+  let interval = setInterval(() => {
+    numero += 1
+    if(numero === 9){
+      setTimeout(() => {
+        clearInterval(interval)
+        timer()
+      }, 1000)
+    }
+    display.textContent = numero
+  }, 1000)
+    
+}
+
+// contador()
 
 listaParticipantes()
 
