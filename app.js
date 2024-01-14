@@ -3,24 +3,39 @@ let inputName = document.querySelector("#name")
 let botaConfirmar = document.querySelector("#btn-confirmar")
 let botaoExcluir = document.querySelector("#btn-excluir")
 let botaoSortear = document.querySelector(".btn-sortear")
+let divResult = document.querySelector(".result")
 let resultado = document.querySelector(".resultado")
+let resultadoGanhador = document.querySelector("#result-ganhador")
+let resultadoData = document.querySelector("#result-data")
 let pData = document.querySelector("#data")
+let voltar = document.querySelector("#voltar")
 let list = document.querySelector("#box-card")
 
 let storage = localStorage.getItem("pessoa") || "[]"
 let dados = JSON.parse(storage)
 
 function sorteiaPessoa(){
-  const numeroSorteado = Math.floor(Math.random() * dados.length)
-  console.log(dados[numeroSorteado]);
+  let numeroSorteado = Math.floor(Math.random() * dados.length)
+  let pessoas = []
+  
+  dados.forEach((nome) => {
+    pessoas.push(nome.name)
+    console.log(pessoas[numeroSorteado]);
+    resultadoGanhador.textContent = pessoas[numeroSorteado]   
+  })
 }
 
 function timer(){
   setTimeout(() => {
     sorteiaPessoa()
+    divResult.classList.add("success")
   }, 1000)
 }
 
+voltar.addEventListener("click", (e) => {
+  e.preventDefault()
+  divResult.classList.remove("success")
+})
 
 botaoSortear.addEventListener("click", () => {
   timer()
@@ -29,6 +44,7 @@ botaoSortear.addEventListener("click", () => {
 
 let data = new Date()
 pData.textContent = data
+resultadoData.textContent = data
 
 
 function addParticipante() {
@@ -45,7 +61,6 @@ function addParticipante() {
      dados.push(item)
      localStorage.setItem('pessoa', JSON.stringify(dados))
      inputName.value = ""
-
   }
 }
 
@@ -76,6 +91,15 @@ function listaParticipantes(){
 
 
 listaParticipantes()
+
+inputName.addEventListener('keydown', (e) =>{
+  if(inputName.valuue == "") return
+  if(e.key == "Enter"){
+    addParticipante()
+    inputName.focus()
+  }
+})
+
 
 botaConfirmar.addEventListener("click", (e) => {
   e.preventDefault()
